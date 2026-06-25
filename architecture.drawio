@@ -1,0 +1,165 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36">
+  <diagram id="crypto_tracker_arch_exact" name="Implemented Frontend Architecture">
+    <mxGraphModel dx="479" dy="328" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="2200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="layer1_container" parent="1" style="fillColor=#f8fafc;strokeColor=#cbd5e1;rounded=1;arcSize=2;verticalAlign=top;align=left;spacingLeft=20;spacingTop=15;fontStyle=1;fontSize=18;fontColor=#0f172a;shadow=0;" value="1. User Layer (Client Environment)" vertex="1">
+          <mxGeometry height="160" width="1440" x="80" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="browser" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#3b82f6;fontColor=#ffffff;strokeColor=#2563eb;fontStyle=1;fontSize=14;rounded=1;arcSize=6;shadow=0;" value="&lt;b&gt;Browser Environment&lt;/b&gt;&lt;br&gt;&lt;br&gt;Client Runtime / Viewport / DOM / React Root Container" vertex="1">
+          <mxGeometry height="80" width="420" x="120" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="userInteractions" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#3b82f6;fontColor=#ffffff;strokeColor=#2563eb;fontStyle=1;fontSize=14;rounded=1;arcSize=6;shadow=0;" value="&lt;b&gt;User Interactions&lt;/b&gt;&lt;br&gt;&lt;br&gt;Navigation / Symbol Selection / Filtering / Theme Toggle / Speed Controls" vertex="1">
+          <mxGeometry height="80" width="420" x="580" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="events" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#3b82f6;fontColor=#ffffff;strokeColor=#2563eb;fontStyle=1;fontSize=14;rounded=1;arcSize=6;shadow=0;" value="&lt;b&gt;Keyboard &amp;amp; Mouse Events&lt;/b&gt;&lt;br&gt;&lt;br&gt;Synthetic Event Handlers / Input Debounce / Hover Interactive Crosshairs" vertex="1">
+          <mxGeometry height="80" width="420" x="1040" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2_container" parent="1" style="fillColor=#f1f5f9;strokeColor=#cbd5e1;rounded=1;arcSize=2;verticalAlign=top;align=left;spacingLeft=20;spacingTop=15;fontStyle=1;fontSize=18;fontColor=#0f172a;shadow=0;" value="2. Presentation Layer (React 18 + React Router + Feature Components)" vertex="1">
+          <mxGeometry height="340" width="1440" x="80" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="coreRouting" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#8b5cf6;fontColor=#ffffff;strokeColor=#7c3aed;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;React 18 &amp;amp; React Router&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Functional Components &amp;amp; Hooks Architecture&lt;br&gt;• Client-Side Routing (react-router-dom)&lt;br&gt;• Direct Module Bundling via Vite" vertex="1">
+          <mxGeometry height="120" width="380" x="120" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="featureModules" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#8b5cf6;fontColor=#ffffff;strokeColor=#7c3aed;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Feature Modules (View Containers)&lt;/b&gt;&lt;br&gt;&lt;br&gt;• &lt;b&gt;Trading Dashboard:&lt;/b&gt; Real-time market view layouts (ProductView)&lt;br&gt;• &lt;b&gt;Live Orderbook Depth:&lt;/b&gt; Top 15 bid/ask cumulative depth bars &amp;amp; spread calculation (OrderBook)&lt;br&gt;• &lt;b&gt;Candlestick Charting:&lt;/b&gt; High-performance custom HTML5 Canvas view (CandlestickChart)&lt;br&gt;• &lt;b&gt;Recent Trades Feed:&lt;/b&gt; Live execution flash highlight rows (RecentTrades)" vertex="1">
+          <mxGeometry height="120" width="920" x="540" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="designSystem" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#a78bfa;fontColor=#ffffff;strokeColor=#8b5cf6;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Vanilla CSS Custom Properties (Theming)&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Zero-dependency pure CSS variables (index.css)&lt;br&gt;• Instant Dark / Light Theme Switching (#05070a / #ffffff)&lt;br&gt;• Fully responsive fluid grid layouts &amp;amp; micro-animations" vertex="1">
+          <mxGeometry height="110" width="440" x="120" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="sharedComponents" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#a78bfa;fontColor=#ffffff;strokeColor=#8b5cf6;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Shared UI Components &amp;amp; Layout&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Header, Navbar, and Theme Toggle (☀️/🌙)&lt;br&gt;• Product List Sidebar (ProductList) &amp;amp; Search Filtering&lt;br&gt;• Connection Status Indicator Badges (Connected/Reconnecting)" vertex="1">
+          <mxGeometry height="110" width="440" x="600" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="memoizationUI" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#a78bfa;fontColor=#ffffff;strokeColor=#8b5cf6;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Strict UI Memoization&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Extensive React.memo with custom equality comparators&lt;br&gt;• Prevents redundant re-renders of orderbook rows &amp;amp; trades&lt;br&gt;• Isolates high-frequency DOM updates" vertex="1">
+          <mxGeometry height="110" width="380" x="1080" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3_container" parent="1" style="fillColor=#f8fafc;strokeColor=#cbd5e1;rounded=1;arcSize=2;verticalAlign=top;align=left;spacingLeft=20;spacingTop=15;fontStyle=1;fontSize=18;fontColor=#0f172a;shadow=0;" value="3. Business Logic Layer (Custom Hooks &amp;amp; High-Frequency 16ms Batching)" vertex="1">
+          <mxGeometry height="280" width="1440" x="80" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="customHooks" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#10b981;fontColor=#ffffff;strokeColor=#059669;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Custom Feature Hooks&lt;/b&gt;&lt;br&gt;&lt;br&gt;• &lt;b&gt;useTicker / useOrderbook / useTrades / useCandlestick:&lt;/b&gt; Subscribes to WS channels on mount &amp;amp; cleans up on unmount&lt;br&gt;• &lt;b&gt;useFavorites:&lt;/b&gt; Encapsulates localStorage synchronization &amp;amp; favorite toggling logic" vertex="1">
+          <mxGeometry height="120" width="700" x="120" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="rafBatching" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#10b981;fontColor=#ffffff;strokeColor=#059669;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;High-Frequency 16ms Batching&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Buffers incoming WebSocket ticks in lightweight useRef containers&lt;br&gt;• Flushes state updates to React once per display frame (16ms) via setTimeout&lt;br&gt;• Bypasses background tab RAF throttling while maintaining solid 60fps" vertex="1">
+          <mxGeometry height="120" width="600" x="860" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="dataTransformers" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#34d399;fontColor=#ffffff;strokeColor=#10b981;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Data Transformers &amp;amp; Slicing&lt;/b&gt;&lt;br&gt;&lt;br&gt;Top 15 Bids/Asks slicing / Cumulative depth bar percentage calculations" vertex="1">
+          <mxGeometry height="70" width="440" x="120" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="candleBucketing" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#34d399;fontColor=#ffffff;strokeColor=#10b981;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Live OHLCV Bucketing&lt;/b&gt;&lt;br&gt;&lt;br&gt;Quantizes real-time ticks into 5-second candlestick buckets dynamically" vertex="1">
+          <mxGeometry height="70" width="440" x="600" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="formattingUtils" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#34d399;fontColor=#ffffff;strokeColor=#10b981;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Utility Functions&lt;/b&gt;&lt;br&gt;&lt;br&gt;Currency formatting / Spread calculation / Trade flash triggers" vertex="1">
+          <mxGeometry height="70" width="380" x="1080" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4_container" parent="1" style="fillColor=#f1f5f9;strokeColor=#cbd5e1;rounded=1;arcSize=2;verticalAlign=top;align=left;spacingLeft=20;spacingTop=15;fontStyle=1;fontSize=18;fontColor=#0f172a;shadow=0;" value="4. State Management Layer (Zero-Dependency React Context &amp;amp; Local State)" vertex="1">
+          <mxGeometry height="240" width="1440" x="80" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="wsContextState" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#f59e0b;fontColor=#ffffff;strokeColor=#d97706;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;WebSocketContext (Global State)&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Distributes the WebSocketManager singleton down the React component tree&lt;br&gt;• Avoids prop drilling and redundant socket initializations&lt;br&gt;• Exposes connection status (isConnected) to Header and feature views" vertex="1">
+          <mxGeometry height="160" width="440" x="120" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="localHookState" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#f59e0b;fontColor=#ffffff;strokeColor=#d97706;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Local Hook State &amp;amp; Refs (useState / useRef)&lt;/b&gt;&lt;br&gt;&lt;br&gt;• useState holds view-ready sliced orderbooks, trades, and chart data&lt;br&gt;• useRef holds high-frequency tick accumulators to avoid re-renders during flood&lt;br&gt;• Active symbol and search filters managed cleanly at view container level" vertex="1">
+          <mxGeometry height="160" width="440" x="600" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="localStorageState" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#f59e0b;fontColor=#ffffff;strokeColor=#d97706;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;localStorage Persistence&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Persists user Favorite symbols (CRYPTO_TRACKER_FAVORITES)&lt;br&gt;• Persists active Theme selection (CRYPTO_TRACKER_THEME)&lt;br&gt;• Synchronized seamlessly across browser reloads" vertex="1">
+          <mxGeometry height="160" width="440" x="1080" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="layer5_container" parent="1" style="fillColor=#f8fafc;strokeColor=#cbd5e1;rounded=1;arcSize=2;verticalAlign=top;align=left;spacingLeft=20;spacingTop=15;fontStyle=1;fontSize=18;fontColor=#0f172a;shadow=0;" value="5. Real-Time Communication Layer (Centralized WebSocket Singleton)" vertex="1">
+          <mxGeometry height="340" width="1440" x="80" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="wsManagerCore" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#2563eb;fontColor=#ffffff;strokeColor=#1d4ed8;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;WebSocketManager (Singleton)&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Centralized management of native WebSocket instance bound to globalThis (Vite HMR proof)&lt;br&gt;• Reference-counted subscription tracking (channel:symbol)&lt;br&gt;• Multiplexes outgoing JSON subscribe / unsubscribe frames" vertex="1">
+          <mxGeometry height="130" width="440" x="120" y="1270" as="geometry" />
+        </mxCell>
+        <mxCell id="autoReconnect" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#2563eb;fontColor=#ffffff;strokeColor=#1d4ed8;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Auto-Reconnect &amp;amp; Exponential Backoff&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Automatic reconnection on unexpected socket drop&lt;br&gt;• Jittered exponential backoff algorithm (1s → 30s max)&lt;br&gt;• Re-establishes all active subscriptions seamlessly upon reconnect" vertex="1">
+          <mxGeometry height="130" width="440" x="600" y="1270" as="geometry" />
+        </mxCell>
+        <mxCell id="strictModeDebounce" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#2563eb;fontColor=#ffffff;strokeColor=#1d4ed8;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Single-Mount Clean Lifecycle&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Explicitly eliminated React 18 StrictMode to prevent double-mount thrashing&lt;br&gt;• 100ms debounce timer on unsubscribe / disconnect calls&lt;br&gt;• Guarantees clean socket teardown/rebuild cycles and true production behavior" vertex="1">
+          <mxGeometry height="130" width="440" x="1080" y="1270" as="geometry" />
+        </mxCell>
+        <mxCell id="msgParsing" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#3b82f6;fontColor=#ffffff;strokeColor=#2563eb;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Message Parser &amp;amp; Validation&lt;/b&gt;&lt;br&gt;&lt;br&gt;• JSON.parse wrapped in try/catch block&lt;br&gt;• Basic structural checks for valid event types and payload data" vertex="1">
+          <mxGeometry height="100" width="440" x="120" y="1430" as="geometry" />
+        </mxCell>
+        <mxCell id="eventDispatcher" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#3b82f6;fontColor=#ffffff;strokeColor=#2563eb;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Pub/Sub Event Dispatcher&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Routes incoming message payloads directly to registered hook callbacks&lt;br&gt;• O(1) callback lookup via channel:symbol subscription map" vertex="1">
+          <mxGeometry height="100" width="440" x="600" y="1430" as="geometry" />
+        </mxCell>
+        <mxCell id="errorTrapping" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#3b82f6;fontColor=#ffffff;strokeColor=#2563eb;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Error Trapping &amp;amp; Console Logging&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Traps native WebSocket onerror and onclose events&lt;br&gt;• Logs clean diagnostic connection states to browser console" vertex="1">
+          <mxGeometry height="100" width="440" x="1080" y="1430" as="geometry" />
+        </mxCell>
+        <mxCell id="layer6_container" parent="1" style="fillColor=#f1f5f9;strokeColor=#cbd5e1;rounded=1;arcSize=2;verticalAlign=top;align=left;spacingLeft=20;spacingTop=15;fontStyle=1;fontSize=18;fontColor=#0f172a;shadow=0;" value="6. Infrastructure Layer (Native Web APIs)" vertex="1">
+          <mxGeometry height="200" width="1440" x="80" y="1600" as="geometry" />
+        </mxCell>
+        <mxCell id="nativeStorage" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#64748b;fontColor=#ffffff;strokeColor=#475569;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Native Local Storage API&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Directly accesses browser window.localStorage&lt;br&gt;• Safe JSON serialization/deserialization for user preferences" vertex="1">
+          <mxGeometry height="120" width="440" x="120" y="1650" as="geometry" />
+        </mxCell>
+        <mxCell id="fetchClient" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#64748b;fontColor=#ffffff;strokeColor=#475569;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Native Fetch API Client&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Communicates with HTTP Runtime Config API (http://localhost:3000)&lt;br&gt;• Dispatches POST requests for interactive speed presets (Normal/Fast/Extreme)" vertex="1">
+          <mxGeometry height="120" width="440" x="600" y="1650" as="geometry" />
+        </mxCell>
+        <mxCell id="tsTypeSafety" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#64748b;fontColor=#ffffff;strokeColor=#475569;fontStyle=1;fontSize=14;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;TypeScript Compile-Time Safety&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Strict interface definitions for all WebSocket frames and state payloads&lt;br&gt;• Assures full compile-time type safety across the entire codebase" vertex="1">
+          <mxGeometry height="120" width="440" x="1080" y="1650" as="geometry" />
+        </mxCell>
+        <mxCell id="layer7_container" parent="1" style="fillColor=#f8fafc;strokeColor=#cbd5e1;rounded=1;arcSize=2;verticalAlign=top;align=left;spacingLeft=20;spacingTop=15;fontStyle=1;fontSize=18;fontColor=#0f172a;shadow=0;" value="7. External Systems (Local Backend Services)" vertex="1">
+          <mxGeometry height="220" width="1440" x="80" y="1840" as="geometry" />
+        </mxCell>
+        <mxCell id="extMockWs" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#e11d48;fontColor=#ffffff;strokeColor=#be123c;fontStyle=1;fontSize=15;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;Mock WebSocket Server&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;color: #ffd166;&quot;&gt;ws://localhost:8080&lt;/span&gt;&lt;br&gt;&lt;br&gt;• High-frequency real-time market data streaming server (Node.js/ws)&lt;br&gt;• Feeds channels: &lt;b&gt;all_trades&lt;/b&gt;, &lt;b&gt;candlestick_&lt;res&gt;&lt;/b&gt;, &lt;b&gt;l2_orderbook&lt;/b&gt;, &lt;b&gt;v2/ticker&lt;/b&gt;&lt;br&gt;• Simulates realistic market micro-structure, latency, &amp;amp; order flow" vertex="1">
+          <mxGeometry height="140" width="660" x="120" y="1890" as="geometry" />
+        </mxCell>
+        <mxCell id="extRestApi" parent="1" style="shape=rounded;whiteSpace=wrap;html=1;fillColor=#e11d48;fontColor=#ffffff;strokeColor=#be123c;fontStyle=1;fontSize=15;rounded=1;arcSize=6;align=left;spacingLeft=25;" value="&lt;b&gt;HTTP Runtime Config API&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;color: #ffd166;&quot;&gt;http://localhost:3000&lt;/span&gt;&lt;br&gt;&lt;br&gt;• HTTP API for runtime configuration &amp;amp; stream interval adjustment&lt;br&gt;• Active endpoint: &lt;b&gt;POST /intervals&lt;/b&gt; (interactive stream speed control)&lt;br&gt;• Fully enabled with CORS support for seamless client interaction" vertex="1">
+          <mxGeometry height="140" width="660" x="860" y="1890" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_user_pres" edge="1" parent="1" source="userInteractions" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=2;fontColor=#1e293b;fontSize=12;endArrow=classic;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="featureModules" value="Triggers state &amp;amp; route changes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_pres_hooks" edge="1" parent="1" source="featureModules" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#8b5cf6;strokeWidth=2;fontColor=#1e293b;fontSize=12;endArrow=classic;endFill=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" target="customHooks" value="Invokes custom feature hooks">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_pres_raf" edge="1" parent="1" source="featureModules" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#8b5cf6;strokeWidth=2;fontColor=#1e293b;fontSize=12;endArrow=classic;endFill=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" target="rafBatching" value="Throttles high-freq updates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_hooks_local" edge="1" parent="1" source="customHooks" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10b981;strokeWidth=2;fontColor=#1e293b;fontSize=12;endArrow=classic;endFill=1;exitX=0.6;exitY=1;entryX=0.5;entryY=0;" target="localHookState" value="Manages local state &amp;amp; RAF buffers">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_hooks_storage" edge="1" parent="1" source="customHooks" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10b981;strokeWidth=2;fontColor=#1e293b;fontSize=12;endArrow=classic;endFill=1;exitX=0.9;exitY=1;entryX=0.5;entryY=0;" target="localStorageState" value="Reads / Updates favorites">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_hooks_ws" edge="1" parent="1" source="customHooks" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10b981;strokeWidth=2;fontColor=#1e293b;fontSize=12;endArrow=classic;endFill=1;exitX=0.2;exitY=1;entryX=0.25;entryY=0;" target="wsManagerCore" value="Subscribes / Unsubscribes to channels">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_context_ws" edge="1" parent="1" source="wsContextState" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#f59e0b;strokeWidth=2;fontColor=#1e293b;fontSize=12;endArrow=classic;endFill=1;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" target="wsManagerCore" value="Distributes singleton instance">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_wsmgr_recon" edge="1" parent="1" source="wsManagerCore" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="autoReconnect" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_recon_deb" edge="1" parent="1" source="autoReconnect" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="strictModeDebounce" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_wsmgr_parse" edge="1" parent="1" source="wsManagerCore" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563eb;strokeWidth=1.5;fontColor=#1e293b;fontSize=12;endArrow=classic;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="msgParsing" value="Incoming frames">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_parse_disp" edge="1" parent="1" source="msgParsing" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="eventDispatcher" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_disp_err" edge="1" parent="1" source="eventDispatcher" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="errorTrapping" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_ws_ext" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563eb;strokeWidth=2.5;fontColor=#1e293b;fontSize=13;endArrow=classic;endFill=1;startArrow=classic;startFill=1;exitX=0.25;exitY=1;entryX=0.25;entryY=0;" value="&lt;b&gt;ws://localhost:8080&lt;/b&gt;&lt;br&gt;Bi-directional live stream">
+          <mxGeometry relative="1" x="-0.0591" y="25" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="230" y="1665" />
+              <mxPoint x="285" y="1665" />
+            </Array>
+            <mxPoint x="230" y="1525" as="sourcePoint" />
+            <mxPoint x="285" y="1885" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_infra_rest" edge="1" parent="1" source="fetchClient" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=2;fontColor=#1e293b;fontSize=13;endArrow=classic;endFill=1;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="extRestApi" value="&lt;b&gt;POST /intervals&lt;/b&gt;&lt;br&gt;Runtime speed control">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_storage_native" edge="1" parent="1" source="localStorageState" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;fontColor=#1e293b;fontSize=12;endArrow=classic;endFill=1;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="nativeStorage" value="Persists via window.localStorage">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
