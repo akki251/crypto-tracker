@@ -35,9 +35,6 @@ That's it — open http://localhost:5173 in your browser to view the live tradin
 
 ## Approach & Architecture
 
-> [!NOTE]
-> A full-fledged architectural diagram illustrating the complete frontend-heavy state flow and WebSocket data pipeline is available in **[architecture.drawio](file:///Users/akshanshshrivastava/Desktop/scratch/crypto-tracker/architecture.drawio)**. You can open this file directly in [draw.io](https://app.diagrams.net/) or use the VS Code Draw.io extension to explore the visual architecture.
-
 Our approach prioritizes high performance, architectural cleanliness, and a premium user experience without relying on heavy external state or charting libraries:
 
 - **Centralized WebSocket Singleton (`WebSocketManager`):** To avoid redundant connections across components and survive Vite HMR hot-reloads, we manage WebSocket communication via a robust singleton bound to `globalThis`. It implements exponential backoff reconnection (1s → 30s max), connection state tracking, and a clean pub/sub mechanism for active product subscriptions. We also explicitly eliminated React 18 `StrictMode` to prevent double-mounting and eliminate redundant WebSocket subscribe/unsubscribe thrashing during initial page loads.
