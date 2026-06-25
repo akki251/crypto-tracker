@@ -7,17 +7,6 @@ A real-time cryptocurrency price tracking application built with React + TypeScr
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite)
 
 ---
-
-## 🏛️ Production Frontend Architecture
-
-> [!IMPORTANT]
-> The complete 7-layer production frontend architecture diagram is available in **[architecture.drawio](file:///Users/akshanshshrivastava/Desktop/scratch/crypto-tracker/architecture.drawio)**. 
-> * Fully editable in [draw.io](https://app.diagrams.net/) or the VS Code Draw.io extension.
-> * Details the exact data flow across User, Presentation, Business Logic, State Management, Real-Time Communication, Infrastructure, and External Systems layers.
-
-![Frontend Architecture Diagram](architecture.drawio)
-
-
 ## Setup Instructions
 
 ### Prerequisites
