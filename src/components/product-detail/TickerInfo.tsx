@@ -9,7 +9,21 @@ export const TickerInfo = memo(function TickerInfo({ ticker }: TickerInfoProps) 
   if (!ticker) {
     return (
       <div className="ticker-info" id="ticker-info">
-        <div className="ticker-loading">Waiting for ticker data…</div>
+        <div className="ticker-main">
+          <div className="ticker-price-container">
+            <span className="ticker-label">Last Price</span>
+            <span className="skeleton-box" style={{ width: '140px', height: '36px' }} />
+            <span className="skeleton-box skeleton-box-sm" style={{ height: '36px' }} />
+          </div>
+        </div>
+        <div className="ticker-grid">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div className="ticker-item" key={i}>
+              <span className="skeleton-box skeleton-box-sm" style={{ width: '60px', height: '12px' }} />
+              <span className="skeleton-box" style={{ width: '80px', height: '20px' }} />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

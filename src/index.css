@@ -522,6 +522,20 @@ button {
   opacity: 0.5;
 }
 
+.skeleton-box {
+  background: var(--bg-elevated);
+  height: 24px;
+  width: 90px;
+  border-radius: var(--radius-sm);
+  animation: pulse 1.5s infinite ease-in-out;
+  display: inline-block;
+}
+
+.skeleton-box-sm {
+  width: 60px;
+  height: 20px;
+}
+
 .empty-state {
   text-align: center;
   padding: var(--space-2xl);

@@ -139,19 +139,19 @@ const ProductCard = memo(
 
         <div className="card-price-row">
           <span className="card-price">
-            {lastPrice !== null ? `$${formatNumber(lastPrice)}` : '—'}
+            {lastPrice !== null ? `$${formatNumber(lastPrice)}` : <span className="skeleton-box" />}
           </span>
           <span className={`card-change ${changeClass}`}>
             {change24h !== null
               ? `${change24h >= 0 ? '+' : ''}${change24h.toFixed(2)}%`
-              : '—'}
+              : <span className="skeleton-box skeleton-box-sm" />}
           </span>
         </div>
 
         <div className="card-volume">
           <span className="card-volume-label">Vol 24h</span>
           <span className="card-volume-value">
-            {volume !== null ? formatVolume(volume) : '—'}
+            {volume !== null ? formatVolume(volume) : <span className="skeleton-box skeleton-box-sm" />}
           </span>
         </div>
 

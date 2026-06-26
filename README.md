@@ -7,6 +7,17 @@ A real-time cryptocurrency price tracking application built with React + TypeScr
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite)
 
 ---
+
+## Application Preview
+
+### Solana Live Trading Dashboard & Candlestick Chart
+![Solana Trading Dashboard](assets/solana-trading-dashboard.png)
+
+### Markets Overview & Favorites Dashboard
+![Markets Overview](assets/markets-list-view.png)
+
+---
+
 ## Setup Instructions
 
 ### Prerequisites
@@ -47,13 +58,14 @@ Our approach prioritizes high performance, architectural cleanliness, and a prem
 
 ## What I'd Improve with More Time
 
-If given more time, I would expand and enhance the application in the following key areas:
+While the current implementation achieves robust real-time performance, scaling this to a production-grade enterprise platform involves strict quality gates and architectural scaling. To ensure every improvement is practical and accounts for real-world trade-offs, here is exactly where I would focus next:
 
-1. **Web Worker Data Processing:** Offload WebSocket message parsing, orderbook depth aggregation, and candlestick bucket calculations entirely to a Web Worker. This would keep the main JavaScript UI thread completely unblocked even under extreme market volatility or massive orderbook updates.
-2. **Advanced Charting Capabilities:** Add multi-timeframe aggregation (e.g., 1m, 5m, 1h, 1d), volume histogram sub-charts, technical indicators (Moving Averages, RSI, MACD), and smooth pan/zoom interactions via touch/mouse drag.
-3. **Virtualized Lists for Orderbook & Trades:** Implement virtualized/windowed rendering for the orderbook and recent trades list. While currently sliced efficiently to the top 15/30 items, virtualization would allow users to scroll through hundreds of deep orderbook levels without DOM node bloat.
-4. **Enhanced Testing Coverage:** Expand unit testing beyond core hooks/managers (`Vitest` + `JSDOM`) to include full end-to-end (E2E) integration tests using Playwright or Cypress, validating complete user flows, orderbook depth rendering, and WebSocket reconnection UI states.
-5. **Internationalization (i18n) & Customization:** Add support for multiple fiat currencies (EUR, GBP, JPY), localization, and customizable workspace dashboard layouts (drag-and-drop tiles/panels).
+1. **FPS Monitoring & Memory Profiling:** Under stress test mode, high-frequency updates test the limits of JavaScript's garbage collector. I would implement real-time FPS monitoring and use the React DevTools Profiler alongside the Chrome Memory panel to verify that our `useRef` buffers, timer cleanups, and WebSocket subscription closures aren't causing subtle memory leaks or micro-stutters over long trading sessions.
+2. **Web Worker Offloading (with Aggregated Batching):** To keep the main UI thread entirely unblocked, I'd move WebSocket message deserialization, orderbook sorting, and candlestick bucketing into a dedicated Web Worker. To avoid the trap of `postMessage` serialization overhead exceeding the parsing cost, the worker would aggregate the full view state and only post back a single, ready-to-render data structure once every 16ms.
+3. **Bundle Analysis & Performance Budgets:** Currently, our bundle is exceptionally lightweight (~81kB gzipped) due to our zero-dependency Vanilla CSS and Canvas architecture. However, as teams scale, dependency creep is inevitable. I would integrate automated bundle analysis (via Vite visualizer) and strict performance budgets in our CI to protect this pristine baseline and prevent future engineers from introducing heavy charting or utility libraries without rigorous justification.
+4. **Visual Regression Tests & CI/CD Pipeline:** I would set up GitHub Actions to enforce automated linting (`oxlint`), strict TypeScript checks, and Vitest runs on every PR. Furthermore, I'd introduce End-to-End (E2E) and visual regression tests (using Playwright/Cypress). Because visual regression tests are notoriously flaky on live trading dashboards, I would configure a mocked, deterministic feed of WebSocket ticks to ensure absolute visual consistency across orderbook depth and chart renderings without false positives.
+5. **Feature Flags for Rendering Strategies:** To safely iterate on high-frequency handling without risking the core trading experience, I'd introduce a lightweight feature flag system. This would allow us to perform canary rollouts of experimental rendering strategies (such as alternative canvas drawing techniques or buffer flush intervals) in production, evaluating their performance across different client device capabilities before a full rollout.
+6. **Virtualized Lists for Full Depth-of-Book:** While our current DOM overhead is minimal because we truncate the orderbook to the top 15 levels, scaling to a full depth-of-book display (500+ levels) would cause DOM node bloat. I would implement windowed virtualization to allow seamless scrolling through massive orderbooks and extensive trade histories while keeping the active DOM elements strictly capped.
 
 ---
 

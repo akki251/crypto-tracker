@@ -13,8 +13,22 @@ export const Orderbook = memo(function Orderbook({ symbol }: OrderbookProps) {
       <div className="orderbook" id="orderbook">
         <div className="orderbook-header">
           <h3>Order Book</h3>
+          <span className="skeleton-box skeleton-box-sm" style={{ width: '100px' }} />
         </div>
-        <div className="orderbook-loading">Waiting for orderbook data…</div>
+        <div className="orderbook-table-header">
+          <span className="ob-col-price">Price</span>
+          <span className="ob-col-qty">Quantity</span>
+          <span className="ob-col-total">Total</span>
+        </div>
+        <div className="orderbook-body" style={{ padding: '12px 0' }}>
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div className="ob-row" key={i} style={{ justifyContent: 'space-between', padding: '4px 8px' }}>
+              <span className="skeleton-box" style={{ width: '70px', height: '16px' }} />
+              <span className="skeleton-box" style={{ width: '60px', height: '16px' }} />
+              <span className="skeleton-box" style={{ width: '60px', height: '16px' }} />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

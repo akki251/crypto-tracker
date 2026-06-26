@@ -72,6 +72,12 @@ export const MiniChart = memo(function MiniChart({ symbol }: MiniChartProps) {
       ctx.fillText(priceLevel.toFixed(symbol.includes('DOGE') ? 6 : 2), w - padding.right + 6, y);
     }
 
+    // Calculate candlestick dimensions
+    const displayCount = Math.max(candles.length, 15);
+    const candleStep = chartW / displayCount;
+    const candleWidth = Math.max(Math.min(candleStep * 0.7, 14), 3);
+    const lastX = padding.left + (candles.length - 1) * candleStep + candleStep / 2;
+
     // ─── Draw X-Axis (Time) & Vertical Grid ─────────────────────────────────
     // Separator line above X-axis
     ctx.beginPath();
@@ -96,22 +102,19 @@ export const MiniChart = memo(function MiniChart({ symbol }: MiniChartProps) {
         ctx.lineWidth = 1;
         ctx.stroke();
 
-        // Time label on bottom axis (including seconds to show 5s differences)
-        const timeText = new Date(targetCandle.time * 1000).toLocaleTimeString([], {
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-        });
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-        ctx.textAlign = 'center';
-        ctx.fillText(timeText, x, h - padding.bottom + 14);
+        // Only draw static time label if it doesn't collide with the active live time tag
+        if (Math.abs(x - lastX) > 50) {
+          const timeText = new Date(targetCandle.time * 1000).toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+          });
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+          ctx.textAlign = 'center';
+          ctx.fillText(timeText, x, h - padding.bottom + 14);
+        }
       }
     }
-
-    // Calculate candlestick dimensions
-    const displayCount = Math.max(candles.length, 15);
-    const candleStep = chartW / displayCount;
-    const candleWidth = Math.max(Math.min(candleStep * 0.7, 14), 3);
 
     // ─── Draw Candlesticks (Wicks and Bodies) ───────────────────────────────
     candles.forEach((c, i) => {
@@ -142,7 +145,6 @@ export const MiniChart = memo(function MiniChart({ symbol }: MiniChartProps) {
     // ─── Draw Active Live Indicators (Price Tag & Time Tag) ─────────────────
     const lastCandle = candles[candles.length - 1];
     if (lastCandle) {
-      const lastX = padding.left + (candles.length - 1) * candleStep + candleStep / 2;
       const lastY = padding.top + (1 - (lastCandle.close - minPrice) / priceRange) * chartH;
       const isBullish = lastCandle.close >= lastCandle.open;
       const color = isBullish ? '#00e676' : '#ff5252';
@@ -180,7 +182,7 @@ export const MiniChart = memo(function MiniChart({ symbol }: MiniChartProps) {
         second: '2-digit',
       });
       ctx.fillStyle = color;
-      ctx.fillRect(lastX - 32, h - padding.bottom + 2, 64, 20);
+      ctx.fillRect(lastX - 38, h - padding.bottom + 2, 76, 20);
 
       ctx.fillStyle = '#05070a';
       ctx.textAlign = 'center';

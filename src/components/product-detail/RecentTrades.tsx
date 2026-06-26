@@ -25,7 +25,16 @@ export const RecentTrades = memo(function RecentTrades({ symbol }: RecentTradesP
 
       <div className="trades-body">
         {trades.length === 0 ? (
-          <div className="trades-loading">Waiting for trade data…</div>
+          <div style={{ padding: '12px 0' }}>
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div className="trade-row" key={i} style={{ padding: '4px 8px' }}>
+                <span className="trade-col-price"><span className="skeleton-box" style={{ width: '65px', height: '16px' }} /></span>
+                <span className="trade-col-size"><span className="skeleton-box" style={{ width: '50px', height: '16px' }} /></span>
+                <span className="trade-col-side"><span className="skeleton-box skeleton-box-sm" style={{ width: '35px', height: '16px' }} /></span>
+                <span className="trade-col-time"><span className="skeleton-box" style={{ width: '60px', height: '16px' }} /></span>
+              </div>
+            ))}
+          </div>
         ) : (
           trades.map((trade) => (
             <TradeRow key={trade.id} trade={trade} />
